@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>mnist generator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <section class="container">
+    <h1>handwritten digit image generator</h1>
+    <p>Generate synthetic mnist-like images using your trained model.</p>
+
+    <label>Choose a digit to generate (0-9):</label>
+    <label>
+      <input id="digit" type="number" min="0" max="9" placeholder="0" onbeforeinput="singleDigit()">
+    </label>
+    <button>Generate images</button>
+  </section>
+
+  <section class="images">
+
+  </section>
+
+  <script src="index.js"></script>
+</body>
+</html>

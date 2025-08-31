@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    background-color: rgb(6, 32, 43);
+    color: snow;
+    font-family: "Noto Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+body {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0 5%;
+    margin: 0;
+    min-height: 100vh;
+}
+
+.container {
+    width: 50%;
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    font-size: 20px;
+    padding: 2% 1% 2% 2%;
+}
+
+.images {
+    width: 50%;
+    text-align: left;
+    padding: 2% 2% 2% 1%;
+}
+
+h1 {
+    font-size: 2.2em;
+    color: rgb(245, 238, 221);
+}
+
+label {
+    margin: 0 0 12px 0;
+}
+
+input {
+    background-color: rgb(6, 32, 43);
+    font-size: 1.1em;
+    text-align: right;
+    padding-right: 7px;
+    border: 1px solid snow;
+    border-radius: 5px;
+}
+
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+button {
+    background-color: rgb(7, 122, 125);
+    padding: 1% 2%;
+    border: 1px solid snow;
+    border-radius: 5px;
+    width: 12em;
+    align-self: end;
+}
