@@ -1,12 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>mnist generator</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
+{% extends 'base.html' %}
+{% block content %}
   <section class="container">
     <h1>handwritten digit image generator</h1>
     <p>Generate synthetic mnist-like images using your trained model.</p>
@@ -22,6 +15,5 @@
 
   </section>
 
-  <script src="index.js"></script>
-</body>
-</html>
+  <script src="../static/base.js"></script>
+{% endblock %}
