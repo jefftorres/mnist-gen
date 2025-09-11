@@ -1,6 +1,6 @@
 {% extends 'app.html' %}
 {% block images %}
   {% for img in imgs %}
-    <img src="../static/output/gen_{{ loop.index0 }}.png" alt="number" class="image">
+    <img src="../static/gen/{{ loop.index0 }}.svg" alt="number" class="image">
   {% endfor %}
 {% endblock %}

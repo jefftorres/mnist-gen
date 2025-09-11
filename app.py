@@ -2,6 +2,7 @@ import os
 import shutil
 
 import torch
+import matplotlib.pyplot as plt
 
 from flask import Flask, render_template
 from torchvision.transforms import ToPILImage
@@ -35,11 +36,19 @@ def generate(n: int) -> str:
 
     # will just save the images in static files for now,
     # want to check how to show them without saving them in files
-    if os.path.exists('./static/output'):
-        shutil.rmtree('./static/output')
+    if os.path.exists('./static/gen'):
+        shutil.rmtree('./static/gen')
 
+    os.mkdir('./static/gen')
     for idx, img in enumerate(imgs):
-        img.save(f'./static/output/gen_{idx}.png')
+        fig = plt.figure()
+        ax = plt.Axes(fig, [0., 0., 1., 1.])
+        fig.add_axes(ax)
+
+        plt.imshow(img, cmap='gray')
+        plt.axis('off')
+        fig.savefig(f'./static/gen/{idx}.svg', bbox_inches='tight', pad_inches=0)
+        plt.close(fig)
 
     return render_template('images.html', imgs=imgs)
 
