@@ -34,9 +34,9 @@ raw_tensor: transforms.Compose = transforms.Compose([transforms.ToTensor()])
 train_set_raw: datasets.MNIST = datasets.MNIST(root='./', train=True, download=True, transform=raw_tensor)
 
 images: list = [img.view(-1) for img, _ in train_set_raw]
-all_pixels = torch.cat(images)
-mean = all_pixels.mean()
-std = all_pixels.std()
+all_pixels: torch.Tensor = torch.cat(images)
+mean: torch.Tensor = all_pixels.mean()
+std: torch.Tensor = all_pixels.std()
 # print(f'Mean: {mean:.4f}, std: {std:.4f}')
 
 normalizer = transforms.Compose([
@@ -60,7 +60,7 @@ class Generator(nn.Module):
     """
     Base GAN, generator
     """
-    def __init__(self, noise_dim, img_shape):
+    def __init__(self, noise_dim):
         super(Generator, self).__init__()
         self.model = nn.Sequential(
             nn.Linear(noise_dim, hidden_dim // 2, bias=False),
@@ -75,7 +75,7 @@ class Generator(nn.Module):
             nn.BatchNorm1d(hidden_dim * 2, 0.8),
             nn.LeakyReLU(0.2),
 
-            nn.Linear(hidden_dim * 2, img_shape, bias=False),
+            nn.Linear(hidden_dim * 2, image_size, bias=False),
             nn.Tanh()  # Output in range [-1, 1]
         )
 
@@ -111,7 +111,7 @@ class Discriminator(nn.Module):
         return validity
 
 
-generator = Generator(latent_dim, image_size).to(device)
+generator = Generator(latent_dim).to(device)
 discriminator = Discriminator(image_size).to(device)
 
 adversarial_loss = nn.BCELoss()
