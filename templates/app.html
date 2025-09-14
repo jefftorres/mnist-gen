@@ -1,17 +1,22 @@
 {% extends 'base.html' %}
 {% block content %}
-  <section class="container">
-    <h1>handwritten digit image generator</h1>
-    <p>Generate synthetic mnist-like images using your trained model.</p>
+    <div class="app">
+        <section class="content">
+            <h1>handwritten digit image generator</h1>
+            <p>Generate synthetic mnist-like images using self-trained models.</p>
 
-    <label>Choose a digit to generate (0-9):</label>
-    <label>
-      <input id="digit" type="number" min="0" max="9" placeholder="0" onbeforeinput="singleDigit()">
-    </label>
-    <button>Generate images</button>
-  </section>
-
-  <section class="images">
-    {% block images %}{% endblock %}
-  </section>
+            <label>Choose a digit to generate (0-9):</label>
+            <label>
+              <input type="number" min="0" max="9" placeholder="0" onbeforeinput="singleDigit(this)">
+            </label>
+            <label>Amount of images to generate (0-9):</label>
+            <label>
+              <input type="number" min="0" max="9" placeholder="0" onbeforeinput="singleDigit(this)">
+            </label>
+            <button>Generate images</button>
+        </section>
+        <section class="images">
+            {% block images %}{% endblock %}
+        </section>
+    </div>
 {% endblock %}

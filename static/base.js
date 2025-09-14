@@ -1,5 +1,5 @@
 console.log('yo ✨')
 
-function singleDigit() {
-    document.getElementById('digit').value = '';
+function singleDigit(input) {
+    input.value = '';
 }
